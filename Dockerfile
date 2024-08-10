@@ -1,6 +1,6 @@
 FROM python:3.10
 
-RUN git clone -b ALBY-Userbot https://github.com/PunyaAlby/Projects /home/alby/ && \
+RUN git clone -b ALBY-Userbot https://github.com/PunyaAlby/tesbajing /home/alby/ && \
     chmod 777 /home/alby && \
     mkdir /home/alby/bin/
 
