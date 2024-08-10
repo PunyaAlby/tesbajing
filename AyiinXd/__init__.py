@@ -562,29 +562,29 @@ with bot:
         )
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
-        try:
-            entity = await event.get_chat()  # Mendapatkan entity chat dari event
-            if entity is None:
-                raise ValueError("Entity tidak valid atau tidak ditemukan.")
+                try:
+                    entity = await event.get_chat()  # Mendapatkan entity chat dari event
+                    if entity is None:
+                        raise ValueError("Entity tidak valid atau tidak ditemukan.")
 
-            buttons = paginate_help(0, dugmeler, "helpme")
-            text = f"**📍 ALBY-Userbot Inline Menu 📍**\n\n㊪ **ʙᴀsᴇ ᴏɴ :** {adB.name}\n㊪ **ᴅᴇᴘʟᴏʏ :** •[{HOSTED_ON}]•\n㊪ **ᴏᴡɴᴇʀ** {user.first_name}\n㊪ **ᴊᴜᴍʟᴀʜ :** {len(dugmeler)} **Modules**"
+                    buttons = paginate_help(0, dugmeler, "helpme")
+                    text = f"**📍 ALBY-Userbot Inline Menu 📍**\n\n㊪ **ʙᴀsᴇ ᴏɴ :** {adB.name}\n㊪ **ᴅᴇᴘʟᴏʏ :** •[{HOSTED_ON}]•\n㊪ **ᴏᴡɴᴇʀ** {user.first_name}\n㊪ **ᴊᴜᴍʟᴀʜ :** {len(dugmeler)} **Modules**"
 
-            await event.edit(
-                text,
-                file=logoyins,
-                buttons=buttons,
-                link_preview=False,
-            )
-        except ValueError as e:
-            print(f"Error: {e}")
-            # Anda bisa menambahkan logging atau penanganan error lainnya di sini
-        except Exception as e:
-            print(f"Terjadi error yang tidak terduga: {e}")
-            # Penanganan untuk error yang tidak terduga
-    else:
-        reply_pop_up_alert = f"Kamu Tidak diizinkan, ini Userbot Milik {owner}"
-        await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+                    await event.edit(
+                        text,
+                        file=logoyins,
+                        buttons=buttons,
+                        link_preview=False,
+                    )
+                except ValueError as e:
+                    print(f"Error: {e}")
+                    # Anda bisa menambahkan logging atau penanganan error lainnya di sini
+                except Exception as e:
+                    print(f"Terjadi error yang tidak terduga: {e}")
+                    # Penanganan untuk error yang tidak terduga
+            else:
+                reply_pop_up_alert = f"Kamu Tidak diizinkan, ini Userbot Milik {owner}"
+                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
 
         @tgbot.on(events.InlineQuery)
