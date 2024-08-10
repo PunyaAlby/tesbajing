@@ -561,7 +561,7 @@ with bot:
             )
         )
         async def on_plug_in_callback_query_handler(event):
-    if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
         try:
             entity = await event.get_chat()  # Mendapatkan entity chat dari event
             if entity is None:
