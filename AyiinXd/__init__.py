@@ -564,8 +564,6 @@ with bot:
             if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 try:
                     entity = await event.get_chat()  # Mendapatkan entity chat dari event
-                    if entity is None:
-                        raise ValueError("Entity tidak valid atau tidak ditemukan.")
 
                     buttons = paginate_help(0, dugmeler, "helpme")
                     text = f"**📍 ALBY-Userbot Inline Menu 📍**\n\n㊪ **ʙᴀsᴇ ᴏɴ :** {adB.name}\n㊪ **ᴅᴇᴘʟᴏʏ :** •[{HOSTED_ON}]•\n㊪ **ᴏᴡɴᴇʀ** {user.first_name}\n㊪ **ᴊᴜᴍʟᴀʜ :** {len(dugmeler)} **Modules**"
