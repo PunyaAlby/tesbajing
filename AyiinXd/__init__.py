@@ -561,9 +561,9 @@ with bot:
             )
         )
         async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS or event.query.user_id in VVIP:
                 try:
-                    entity = await event.get_chat()  # Mendapatkan entity chat dari event
+                    await event.get_chat()  # Mendapatkan entity chat dari event
 
                     buttons = paginate_help(0, dugmeler, "helpme")
                     text = f"**📍 ALBY-Userbot Inline Menu 📍**\n\n㊪ **ʙᴀsᴇ ᴏɴ :** {adB.name}\n㊪ **ᴅᴇᴘʟᴏʏ :** •[{HOSTED_ON}]•\n㊪ **ᴏᴡɴᴇʀ** {user.first_name}\n㊪ **ᴊᴜᴍʟᴀʜ :** {len(dugmeler)} **Modules**"
