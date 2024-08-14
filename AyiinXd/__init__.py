@@ -5,7 +5,7 @@
 # you may not use this file except in compliance with the License.
 #
 # inline credit @keselekpermen69
-# Recode by @mrismanaziz
+# Recode by @mrismanaziz @punya_alby
 # t.me/SharingUserbot
 #
 """ Userbot initialization. """
@@ -565,22 +565,8 @@ with bot:
                 try:
                     entity = await event.get_chat()  # Mendapatkan entity chat dari event
 
-                    if entity is None:
-                        raise ValueError("Entity tidak valid atau tidak ditemukan.")
-
-                    # Cek tipe entity untuk penanganan yang lebih spesifik
-                    if isinstance(entity, (Chat, Channel)):
-                       chat_type = "Group" if isinstance(entity, Chat) else "Supergroup/Channel"
-                       chat_name = entity.title
-                    elif isinstance(entity, User):
-                       chat_type = "Private Chat"
-                       chat_name = f"{entity.first_name} {entity.last_name or ''}".strip()
-                    else:
-                       chat_type = "Unknown"
-                       chat_name = "Unknown Chat"
-
                     buttons = paginate_help(0, dugmeler, "helpme")
-                    text = f"**📍 ALBY-Userbot Inline Menu 📍**\n\n㊪ **Chat Type: {chat_type}**\n㊪ **Chat Name: {chat_name}**\n㊪ **ʙᴀsᴇ ᴏɴ :** {adB.name}\n㊪ **ᴅᴇᴘʟᴏʏ :** •[{HOSTED_ON}]•\n㊪ **ᴏᴡɴᴇʀ** {user.first_name}\n㊪ **ᴊᴜᴍʟᴀʜ :** {len(dugmeler)} **Modules**"
+                    text = f"**📍 ALBY-Userbot Inline Menu 📍**\n\n㊪ **ʙᴀsᴇ ᴏɴ :** {adB.name}\n㊪ **ᴅᴇᴘʟᴏʏ :** •[{HOSTED_ON}]•\n㊪ **ᴏᴡɴᴇʀ** {user.first_name}\n㊪ **ᴊᴜᴍʟᴀʜ :** {len(dugmeler)} **Modules**"
 
                     await event.edit(
                         text,
